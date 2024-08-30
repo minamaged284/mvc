@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace mvc
@@ -16,6 +18,7 @@ namespace mvc
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
 
         }
 
@@ -44,7 +47,7 @@ namespace mvc
 
                 //endpoints.MapControllerRoute(name:"default",pattern:"Movie/GetMovie");
 
-                endpoints.MapControllerRoute(name: "default", pattern: "{controller}/{action}/{id?}");
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Movie}/{action=GetMovie}/{id:int?}"); //{ email: regex{ } }/{ name: alpha}/*,constraints:new {id =new IntRouteConstraint()}*/);
 
             });
         }
