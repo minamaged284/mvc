@@ -1,0 +1,52 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+
+
+    <nav>
+
+        <div class="bg-light d-flex justify-content-around align-items-center w-100 p-3 m-auto mb-4 rounded-3">
+@*             <a href="/Home/Index" class="btn btn-outline-primary nav-pills">Home</a>
+            <a href="/Home/AboutUs" class="btn btn-outline-warning nav-pills">About us</a>
+            <a href="/Home/Privacy" class="btn btn-outline-success nav-pills">Privacy</a>
+            <a href="/Home/ContactUs" class="btn btn-outline-danger nav-pills">Contact us</a>
+            <a href="/Account/Login" class="btn btn-outline-info nav-pills">Login</a>
+            <a href="/Account/Register" class="btn btn-outline-secondary nav-pills">Register</a> *@
+
+
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary nav-pills">Home</a>
+            <a asp-controller="Home" asp-action="AboutUs" class="btn btn-outline-warning nav-pills">About us</a>
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-outline-success nav-pills">Privacy</a>
+            <a asp-controller="Home" asp-action="ContactUs" class="btn btn-outline-danger nav-pills">Contact us</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-info nav-pills">Login</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-secondary nav-pills">Register</a>
+
+
+
+
+        </div>
+
+    </nav>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+    <h6 class="text-center">
+        Lorem ipsum dolor sit amet @DateTime.Now
+
+    </h6>
+</body>
+</html>

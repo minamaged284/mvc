@@ -8,5 +8,9 @@ namespace mvc.Controllers
         {
             return View();
         }
+
+        public IActionResult AboutUS() { return View(); }
+        public IActionResult Privacy() { return View(); }
+       public  IActionResult ContactUs() { return View(); }
     }
 }
