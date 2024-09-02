@@ -19,6 +19,7 @@ namespace mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddControllersWithViews();
 
         }
 
@@ -29,25 +30,25 @@ namespace mvc
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
 
-                endpoints.MapGet("/path", async context =>
-                {
-                    await context.Response.WriteAsync("path");//only grt works
+                //endpoints.MapGet("/path", async context =>
+                //{
+                //    await context.Response.WriteAsync("path");//only grt works
 
-                });
+                //});
 
                 //endpoints.MapControllerRoute(name:"default",pattern:"Movie/GetMovie");
 
-                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Movie}/{action=GetMovie}/{id:int?}"); //{ email: regex{ } }/{ name: alpha}/*,constraints:new {id =new IntRouteConstraint()}*/);
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id:int?}"); //{ email: regex{ } }/{ name: alpha}/*,constraints:new {id =new IntRouteConstraint()}*/);
 
             });
         }
